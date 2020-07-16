@@ -7,9 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule} from '@angular/flex-layout';
 
+//CRAi Components
+import { CraiNavComponent } from './crai-nav/crai-nav.component';
+import { CraiPeopleComponent } from './crai-people/crai-people.component';
+import { CraiContactComponent } from './crai-contact/crai-contact.component';
+import { CraiHomeComponent } from './crai-home/crai-home.component';
+import { CraiWorkComponent } from './crai-work/crai-work.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CraiNavComponent,
+    CraiPeopleComponent,
+    CraiContactComponent,
+    CraiHomeComponent,
+    CraiWorkComponent
   ],
   imports: [
     BrowserModule,
