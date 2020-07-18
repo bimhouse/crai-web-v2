@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <a routerLink="" fxHide fxShow.gt-sm><span>Claudio Rabaglino Architect Inc.</span></a>
   <span fxHide.gt-sm>CRAi</span>
   <span class="crai-nav-spacer"></span>
@@ -7,12 +7,28 @@
     <a mat-button routerLink="/work">Work</a>
     <a mat-button routerLink="/people">People</a>
     <a mat-button routerLink="/contact">Contact</a>
+    <button mat-button [matMenuTriggerFor]="socialMenu">Social</button>
+    <mat-menu #socialMenu="matMenu" yPosition="below">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
   </div>
 
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <button mat-icon-button class="example-icon" aria-label="Menu" (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
 </mat-toolbar>
+
+  <mat-sidenav #drawer class="example-sidenav" mode="side">
+      <a mat-button routerLink="/work" (click)="drawer.toggle()">Work</a>
+      <mat-divider></mat-divider>
+      <a mat-button routerLink="/people" (click)="drawer.toggle()">People</a>
+      <mat-divider></mat-divider>
+      <a mat-button routerLink="/contact" (click)="drawer.toggle()">Contact</a>
+      <mat-divider></mat-divider>
+      <button mat-button routerLink="/contact" (click)="drawer.toggle()">Social</button>
+      <mat-divider></mat-divider>
+      <button (click)="drawer.toggle()" mat-button>
+        Close <mat-icon>close</mat-icon>
+      </button>
+  </mat-sidenav>

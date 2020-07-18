@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crai-nav.component.scss']
 })
 export class CraiNavComponent implements OnInit {
+  showFiller = false;
 
   constructor() { }
 
