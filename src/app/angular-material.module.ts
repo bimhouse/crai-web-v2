@@ -19,6 +19,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatExpansionModule,
   ],
   exports: [
     MatToolbarModule,
@@ -58,7 +61,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatExpansionModule
   ]
 })
 export class AngularMaterialModule { }
