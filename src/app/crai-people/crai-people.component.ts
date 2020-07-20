@@ -13,7 +13,6 @@ export class CraiPeopleComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.employees);
   }
 
 }

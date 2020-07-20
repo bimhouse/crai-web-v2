@@ -1,28 +1,33 @@
 <!-- Loading -->
 <mat-progress-bar *ngIf="!employees" mode="query"></mat-progress-bar>
 
-<!-- CRAi Employees by List -->
-<div fxLayout="row" fxLayoutWrap fxLayoutGap="2%" fxLayoutAlign="center">
-<mat-chip-list *ngFor="let employee of employees" aria-label="Employee Selection">
-  <mat-chip router>{{ employee.EmployeeName }}</mat-chip>
-</mat-chip-list>
-</div>
-
-<div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap fxLayoutGap="2%" fxLayoutAlign="center">
-  <mat-card *ngFor="let employee of employees" class="employee-card" id="employee.EmployeeName">
-    <img mat-card-image [src]="employee.EmployeeThumb" alt="employee.EmployeeName">
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+  <ng-container *ngFor="let employee of employees" {{ employee.EmployeeName }}>
+  <mat-card fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+    <img mat-card-image [src]="employee.EmployeeThumb" alt="{{ employee.EmployeeName }}">
+    <mat-card-header>
+      <mat-card-title>{{ employee.EmployeeName }}</mat-card-title>
+      <mat-card-subtitle>/ {{ employee.EmployeePosition }}</mat-card-subtitle>
+    </mat-card-header>
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{ employee.EmployeeName }}
+            Story
           </mat-panel-title>
-          <mat-panel-subtitle>
-            / {{ employee.EmployeePosition }}
-          </mat-panel-subtitle>
         </mat-expansion-panel-header>
         <p>{{ employee.EmployeeBlurb }}</p>
       </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Contact
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+          <mat-icon>phone</mat-icon><p>{{ employee.EmployeeCell }}</p>
+          <mat-icon>mail</mat-icon><p>{{ employee.EmployeeEmail }}</p>
+      </mat-expansion-panel>
     </mat-accordion>
   </mat-card>
+  </ng-container>
 </div>
