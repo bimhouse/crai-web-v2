@@ -13,6 +13,7 @@ import { CraiPeopleComponent } from './crai-people/crai-people.component';
 import { CraiContactComponent } from './crai-contact/crai-contact.component';
 import { CraiHomeComponent } from './crai-home/crai-home.component';
 import { CraiWorkComponent } from './crai-work/crai-work.component';
+import { CraiFooterComponent } from './crai-footer/crai-footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CraiWorkComponent } from './crai-work/crai-work.component';
     CraiPeopleComponent,
     CraiContactComponent,
     CraiHomeComponent,
-    CraiWorkComponent
+    CraiWorkComponent,
+    CraiFooterComponent
   ],
   imports: [
     BrowserModule,

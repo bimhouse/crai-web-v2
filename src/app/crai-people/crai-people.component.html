@@ -1,6 +1,9 @@
 <!-- Loading -->
 <mat-progress-bar *ngIf="!employees" mode="query"></mat-progress-bar>
 
+<h1 class="mat-h1">These are the voices of our architects, design thinkers and collaborators.</h1>
+<h3 class="mat-h2">Explore their methods and thoughts here...</h3>
+
 <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
   <ng-container *ngFor="let employee of employees" {{ employee.EmployeeName }}>
   <mat-card fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
