@@ -1,38 +1,40 @@
 <!-- Loading -->
 <mat-progress-bar *ngIf="!employees" mode="query"></mat-progress-bar>
 
-<h1 class="mat-h1">These are the voices of our architects, design thinkers and collaborators.</h1>
-<h3 class="mat-h2">Explore their methods and thoughts here...</h3>
+<div class="page-header">
+  <h1 class="mat-h1">These are the voices of our architects, design thinkers and collaborators.</h1>
+  <h3 class="mat-h2">Explore their methods and thoughts here...</h3>
+</div>
 
-<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start">
+<div class="employee-container" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
   <ng-container *ngFor="let employee of employees" {{ employee.EmployeeName }}>
     <div fxFlex="0 1 calc(33.3%)" fxFlex.lt-md="0 1 calc(50%)" fxFlex.lt-sm="100%">
-  <mat-card>
-    <img mat-card-image [src]="employee.EmployeeThumb" alt="{{ employee.EmployeeName }}">
-    <mat-card-header>
-      <mat-card-title>{{ employee.EmployeeName }}</mat-card-title>
-      <mat-card-subtitle>/ {{ employee.EmployeePosition }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-accordion>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Story
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>{{ employee.EmployeeBlurb }}</p>
-      </mat-expansion-panel>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Contact
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-          <mat-icon>phone</mat-icon><p>{{ employee.EmployeeCell }}</p>
-          <mat-icon>mail</mat-icon><p>{{ employee.EmployeeEmail }}</p>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </mat-card>
-  </div>
+      <mat-card class="employee-card">
+        <img mat-card-image [src]="employee.EmployeeThumb" alt="{{ employee.EmployeeName }}">
+        <mat-card-header>
+          <mat-card-title>{{ employee.EmployeeName }}</mat-card-title>
+          <mat-card-subtitle>/ {{ employee.EmployeePosition }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Story
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>{{ employee.EmployeeBlurb }}</p>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Contact
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+              <mat-icon>phone</mat-icon><p>{{ employee.EmployeeCell }}</p>
+              <mat-icon>mail</mat-icon><p>{{ employee.EmployeeEmail }}</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card>
+    </div>
   </ng-container>
 </div>
