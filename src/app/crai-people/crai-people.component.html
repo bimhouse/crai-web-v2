@@ -6,7 +6,7 @@
   <h3 class="mat-h2">Explore their methods and thoughts here...</h3>
 </div>
 
-<div class="employee-container" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
   <ng-container *ngFor="let employee of employees" {{ employee.EmployeeName }}>
     <div fxFlex="0 1 calc(33.3%)" fxFlex.lt-md="0 1 calc(50%)" fxFlex.lt-sm="100%">
       <mat-card class="employee-card">
