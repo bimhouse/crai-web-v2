@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <a routerLink="" fxHide fxShow.gt-sm><span>Claudio Rabaglino Architect Inc.</span></a>
   <span fxHide.gt-sm>CRAi</span>
   <span class="crai-nav-spacer"></span>
@@ -17,7 +17,12 @@
   <button mat-icon-button class="example-icon" aria-label="Menu" (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <mat-slide-toggle>Dark theme</mat-slide-toggle>
+  <mat-slide-toggle [checked]="isDarkTheme | async" labelPosition="before" (change)="toggleDarkTheme($event.checked)">
+    <mat-icon>wb_sunny</mat-icon>
+    <mat-icon>nights_stay</mat-icon>
+
+  </mat-slide-toggle>
+
 
 </mat-toolbar>
 
