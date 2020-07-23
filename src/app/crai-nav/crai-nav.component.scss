@@ -14,8 +14,13 @@
   width: 100vw;
   height: calc(100vh + 64px);
   display: flex;
-  opacity: 0.9;
-  backdrop-filter: blur(2px);
+  opacity: 0.95;
+  backdrop-filter: blur(20px);
   justify-content: center;
   align-items: center;
+}
+
+// Styling for logo
+#logo-colour {
+  color: rgba(237, 176, 046, 100);
 }
