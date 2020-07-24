@@ -7,11 +7,12 @@ import { CraiPeopleComponent } from './crai-people/crai-people.component';
 import { CraiContactComponent } from './crai-contact/crai-contact.component';
 import { CraiHomeComponent } from './crai-home/crai-home.component';
 import { CraiWorkComponent } from './crai-work/crai-work.component';
+import { CraiWorkDetailComponent } from './crai-work/crai-work-detail.component';
 
 const routes: Routes = [
   { path: '', component: CraiHomeComponent, pathMatch: 'full' },
   { path: 'work', component: CraiWorkComponent },
-//  { path: 'work/:id', component: CraiWorkDetailComponent },
+  { path: 'work/:id', component: CraiWorkDetailComponent },
   { path: 'people', component: CraiPeopleComponent },
   { path: 'contact', component: CraiContactComponent },
 ];

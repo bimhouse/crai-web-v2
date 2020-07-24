@@ -8,7 +8,7 @@ import { ThemeService } from './services/theme.service';
     CommonModule
   ],
   providers: [
-    ThemeService
+    ThemeService,
   ],
   exports: [
     CommonModule

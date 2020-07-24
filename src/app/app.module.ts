@@ -8,6 +8,9 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule} from '@angular/flex-layout';
 
 import { CoreModule } from './core/core.module';
+import { CraiWorkService } from './services/crai-work.service';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //CRAi Components
 import { CraiNavComponent } from './crai-nav/crai-nav.component';
@@ -16,6 +19,8 @@ import { CraiContactComponent } from './crai-contact/crai-contact.component';
 import { CraiHomeComponent } from './crai-home/crai-home.component';
 import { CraiWorkComponent } from './crai-work/crai-work.component';
 import { CraiFooterComponent } from './crai-footer/crai-footer.component';
+import { ProjectTypeFilterPipe } from './crai-work/crai-work.pipe';
+import { CraiWorkDetailComponent } from './crai-work/crai-work-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,17 +30,20 @@ import { CraiFooterComponent } from './crai-footer/crai-footer.component';
     CraiContactComponent,
     CraiHomeComponent,
     CraiWorkComponent,
-    CraiFooterComponent
+    CraiFooterComponent,
+    ProjectTypeFilterPipe,
+    CraiWorkDetailComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
     FlexLayoutModule,
     CoreModule
   ],
-  providers: [],
+  providers: [CraiWorkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
