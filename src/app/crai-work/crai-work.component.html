@@ -1,6 +1,6 @@
+<!-- Loading -->
+<mat-progress-bar *ngIf="!portfolios" mode="query"></mat-progress-bar>
 <section>
-  <!-- Loading -->
-  <mat-progress-bar *ngIf="!portfolios" mode="query"></mat-progress-bar>
 
   <div>
     <h1 class="mat-h1">Design application, execution and collaboration have helped bring these visions to life.</h1>
@@ -15,8 +15,8 @@
     <ng-container *ngFor="let item of portfolios">
       <div fxFlex="0 1 33.3%" fxFlex.lt-md="0 1 50%" fxFlex.lt-sm="100%">
         <mat-card>
-          <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url">
-          <mat-card-header>
+          <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url" class="portfolio-image">
+          <mat-card-header class="extra-height">
             <mat-card-title>{{ item.fields.title }}</mat-card-title>
             <mat-card-subtitle>/ {{ item.fields.subtitle }}</mat-card-subtitle>
           </mat-card-header>
@@ -34,7 +34,7 @@
     <ng-container *ngFor="let item of (portfolios | projectTypeFilter: filterForProjectType)">
       <div fxFlex="0 1 33.3%" fxFlex.lt-md="0 1 50%" fxFlex.lt-sm="100%">
         <mat-card>
-          <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url">
+          <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url" class="portfolio-image">
           <mat-card-header>
             <mat-card-title>{{ item.fields.title }}</mat-card-title>
             <mat-card-subtitle>/ {{ item.fields.subtitle }}</mat-card-subtitle>
