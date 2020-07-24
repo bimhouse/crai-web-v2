@@ -1,6 +1,6 @@
-<mat-toolbar class="mat-elevation-z4">
-  <a routerLink="" fxHide fxShow.gt-sm>Claudio Rabaglino Architect <span id="logo-colour">Inc.</span></a>
-  <a routerLink="" fxHide.gt-sm>CRA<span id="logo-colour">i</span></a>
+<mat-toolbar class="mat-elevation-z4 nav-padding">
+  <a routerLink="" fxHide fxShow.gt-sm class="crai-logo">Claudio Rabaglino Architect <span id="logo-colour">Inc.</span></a>
+  <a routerLink="" fxHide.gt-sm class="crai-logo">CRA<span id="logo-colour">i</span></a>
   <span class="crai-nav-spacer"></span>
 
   <div fxHide.lt-md class="crai-nav-button-row">
@@ -9,8 +9,10 @@
     <a mat-button routerLink="/contact">Contact</a>
     <button mat-button [matMenuTriggerFor]="socialMenu">Social</button>
     <mat-menu #socialMenu="matMenu" yPosition="below">
-      <button mat-menu-item>Item 1</button>
-      <button mat-menu-item>Item 2</button>
+      <button mat-menu-item><mat-icon>launch</mat-icon>LinkedIn</button>
+      <button mat-menu-item><mat-icon>launch</mat-icon>Facebook</button>
+      <button mat-menu-item><mat-icon>launch</mat-icon>Instagram</button>
+      <button mat-menu-item><mat-icon>launch</mat-icon>Twitter</button>
     </mat-menu>
   </div>
 
@@ -25,13 +27,13 @@
 </mat-toolbar>
 
   <mat-sidenav #drawer class="example-sidenav" mode="side">
-      <a mat-button routerLink="/work" (click)="drawer.toggle()">Work</a>
+      <button mat-button class="sidenav-jumbo-button" routerLink="/work" (click)="drawer.toggle()">Work</button>
       <mat-divider></mat-divider>
-      <a mat-button routerLink="/people" (click)="drawer.toggle()">People</a>
+      <button mat-button class="sidenav-jumbo-button" routerLink="/people" (click)="drawer.toggle()">People</button>
       <mat-divider></mat-divider>
-      <a mat-button routerLink="/contact" (click)="drawer.toggle()">Contact</a>
+      <button mat-button class="sidenav-jumbo-button" routerLink="/contact" (click)="drawer.toggle()">Contact</button>
       <mat-divider></mat-divider>
-      <button mat-button routerLink="/contact" (click)="drawer.toggle()">Social</button>
+      <button mat-button class="sidenav-jumbo-button" routerLink="/contact" (click)="drawer.toggle()">Social</button>
       <mat-divider></mat-divider>
       <button (click)="drawer.toggle()" mat-button>
         Close <mat-icon>close</mat-icon>

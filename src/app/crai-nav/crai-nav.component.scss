@@ -2,6 +2,10 @@
   flex: 1 1 auto;
 }
 
+.nav-padding{
+  padding: 30px;
+}
+
 .crai-nav-button-row {
   display: table-cell;
   width: 350px;
@@ -15,7 +19,6 @@
   height: calc(100vh + 64px);
   display: flex;
   opacity: 0.95;
-  backdrop-filter: blur(20px);
   justify-content: center;
   align-items: center;
 }
@@ -23,4 +26,17 @@
 // Styling for logo
 #logo-colour {
   color: rgba(237, 176, 046, 100);
+}
+
+.crai-logo {
+  color: black;
+  font-size: 1em;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sidenav-jumbo-button {
+  height: 80px;
+  font-size: 4em;
+  font-weight: 700;
 }
