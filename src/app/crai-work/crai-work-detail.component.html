@@ -1,19 +1,41 @@
 <!-- Loading -->
 <mat-progress-bar *ngIf="!item" mode="query"></mat-progress-bar>
 
-<h2 *ngIf="item">{{item.fields.title}}</h2>
-<img [src]="item.fields.thumb[0].thumbnails.large.url" />
+<h1 *ngIf="item">{{item.fields.title}}</h1>
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
+  <div fxFlex="100%">
+    <mat-card>
+    <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url">
+    </mat-card>
+  </div>
+</div>
 
-<dl>
-    <dt class="mat-small">Client</dt>
-    <dd class="mat-body-2">{{item.fields.clientName}}</dd>
-    <dt class="mat-small">Location</dt>
-    <dd class="mat-body-2">{{item.fields.location}}</dd>
-    <dt class="mat-small">Size</dt>
-    <dd class="mat-body-2">{{item.fields.sf}} sf</dd>
-    <dt class="mat-small">Project</dt>
-    <dd class="mat-body-2">{{item.fields.project}}</dd>
-    <dt class="mat-small">Role</dt>
-    <dd class="mat-body-2">{{item.fields.projectRole}}</dd>
-</dl>
-<div>{{item.fields.writeUp}}</div>
+<mat-tab-group>
+  <mat-tab label="Information">
+    <mat-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon>person</mat-icon>
+        <div mat-line>{{item.fields.clientName}}</div>
+        <div mat-line>Client</div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>place</mat-icon>
+        <div mat-line>{{item.fields.location}}</div>
+        <div mat-line>Location</div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>crop_square</mat-icon>
+        <div mat-line>{{item.fields.sf}}</div>
+        <div mat-line>Size [sf]</div>
+      </mat-list-item>
+      <mat-list-item>Project {{item.fields.project}}</mat-list-item>
+      <mat-list-item>Role {{item.fields.projectRole}}</mat-list-item>
+    </mat-list>
+  </mat-tab>
+  <mat-tab label="Story">
+    <div>{{item.fields.writeUp}}</div>
+  </mat-tab>
+  <mat-tab label="Downloads">
+    <div>Downloads</div>
+  </mat-tab>
+</mat-tab-group>

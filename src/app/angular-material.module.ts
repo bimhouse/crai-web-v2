@@ -21,7 +21,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 
 
@@ -47,7 +49,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatProgressBarModule,
     MatExpansionModule,
     MatSlideToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule
   ],
   exports: [
     MatToolbarModule,
@@ -68,7 +71,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatProgressBarModule,
     MatExpansionModule,
     MatSlideToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule
   ]
 })
 export class AngularMaterialModule { }
