@@ -5,6 +5,7 @@
 
 @import '~normalize.css';
 @import '~@angular/material/theming';
+@import './component-themes';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -232,10 +233,12 @@ $dark-theme: mat-dark-theme($theme-primary, $dark-theme-accent, $theme-warn);
 
 // Theme Init
 @include angular-material-theme($theme);
+@include component-themes($theme);
 
 // Our dark theme
 .dark-theme {
   @include angular-material-theme($dark-theme);
+  @include component-themes($dark-theme);
 }
 
 // Specific component overrides, pieces that are not in line with the general theming

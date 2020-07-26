@@ -1,6 +1,5 @@
 <mat-toolbar class="mat-elevation-z4 nav-padding">
-  <a routerLink="" fxHide fxShow.gt-sm class="crai-logo">Claudio Rabaglino Architect <span id="logo-colour">Inc.</span></a>
-  <a routerLink="" fxHide.gt-sm class="crai-logo">CRA<span id="logo-colour">i</span></a>
+  <app-crai-logo></app-crai-logo>
   <span class="crai-nav-spacer"></span>
 
   <div fxHide.lt-md class="crai-nav-button-row">
@@ -9,19 +8,23 @@
     <a mat-button routerLink="/contact">Contact</a>
     <button mat-button [matMenuTriggerFor]="socialMenu">Social</button>
     <mat-menu #socialMenu="matMenu" yPosition="below">
-      <button mat-menu-item><mat-icon>launch</mat-icon>LinkedIn</button>
-      <button mat-menu-item><mat-icon>launch</mat-icon>Facebook</button>
-      <button mat-menu-item><mat-icon>launch</mat-icon>Instagram</button>
-      <button mat-menu-item><mat-icon>launch</mat-icon>Twitter</button>
+      <a href="https://linkedin.com/company/rabaglinoarchitect" mat-menu-item target="_blank"><mat-icon>launch</mat-icon>LinkedIn</a>
+      <a href="https://twitter.com/CRAi_arch" mat-menu-item target="_blank"><mat-icon>launch</mat-icon>Twitter</a>
+      <a href="https://www.instagram.com/crai_arch/" mat-menu-item target="_blank"><mat-icon>launch</mat-icon>Instagram</a>
     </mat-menu>
   </div>
 
   <button mat-icon-button class="example-icon" aria-label="Menu" (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <mat-slide-toggle [checked]="isDarkTheme | async" labelPosition="before" (change)="toggleDarkTheme($event.checked)">
-    <mat-icon>nights_stay</mat-icon>
-  </mat-slide-toggle>
+  <button mat-icon-button [matMenuTriggerFor]="settingsMenu"><mat-icon>settings</mat-icon></button>
+  <mat-menu #settingsMenu="matMenu" yPosition="below">
+    <button mat-menu-item>
+    <mat-slide-toggle [checked]="isDarkTheme | async" labelPosition="before" (change)="toggleDarkTheme($event.checked)" color="primary">
+      <mat-icon>nights_stay</mat-icon>Dark Mode
+    </mat-slide-toggle>
+    </button>
+  </mat-menu>
 
 
 </mat-toolbar>

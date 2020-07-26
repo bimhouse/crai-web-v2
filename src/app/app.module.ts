@@ -21,6 +21,7 @@ import { CraiWorkComponent } from './crai-work/crai-work.component';
 import { CraiFooterComponent } from './crai-footer/crai-footer.component';
 import { ProjectTypeFilterPipe } from './crai-work/crai-work.pipe';
 import { CraiWorkDetailComponent } from './crai-work/crai-work-detail.component';
+import { CraiLogoComponent } from './crai-logo/crai-logo.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CraiWorkDetailComponent } from './crai-work/crai-work-detail.component'
     CraiWorkComponent,
     CraiFooterComponent,
     ProjectTypeFilterPipe,
-    CraiWorkDetailComponent
+    CraiWorkDetailComponent,
+    CraiLogoComponent
   ],
   imports: [
     BrowserModule,
