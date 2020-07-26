@@ -39,6 +39,16 @@
       <button mat-button class="sidenav-jumbo-button" routerLink="/contact" (click)="drawer.toggle()">Social</button>
       <mat-divider></mat-divider>
       <button (click)="drawer.toggle()" mat-button>
-        Close <mat-icon>close</mat-icon>
+        <mat-icon>close</mat-icon><span>Close</span>
       </button>
+      <button mat-button [matMenuTriggerFor]="settingsMenu">
+        <mat-icon>settings</mat-icon><span>Settings</span>
+      </button>
+      <mat-menu #settingsMenu="matMenu" yPosition="below">
+        <button mat-menu-item>
+        <mat-slide-toggle [checked]="isDarkTheme | async" labelPosition="before" (change)="toggleDarkTheme($event.checked)" color="primary">
+          <mat-icon>nights_stay</mat-icon>Dark Mode
+        </mat-slide-toggle>
+        </button>
+      </mat-menu>
   </mat-sidenav>
