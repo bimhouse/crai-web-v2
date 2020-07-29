@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule} from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreModule } from './core/core.module';
 import { CraiWorkService } from './services/crai-work.service';
@@ -22,6 +23,7 @@ import { CraiFooterComponent } from './crai-footer/crai-footer.component';
 import { ProjectTypeFilterPipe } from './crai-work/crai-work.pipe';
 import { CraiWorkDetailComponent } from './crai-work/crai-work-detail.component';
 import { CraiLogoComponent } from './crai-logo/crai-logo.component';
+import { CraiEmailsigComponent } from './crai-emailsig/crai-emailsig.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { CraiLogoComponent } from './crai-logo/crai-logo.component';
     CraiFooterComponent,
     ProjectTypeFilterPipe,
     CraiWorkDetailComponent,
-    CraiLogoComponent
+    CraiLogoComponent,
+    CraiEmailsigComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { CraiLogoComponent } from './crai-logo/crai-logo.component';
     BrowserAnimationsModule,
     AngularMaterialModule,
     FlexLayoutModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule
   ],
   providers: [CraiWorkService],
   bootstrap: [AppComponent]

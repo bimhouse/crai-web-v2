@@ -1,0 +1,53 @@
+<h1>Email Signature Generator</h1>
+<h3>Fill out the form below, then copy and paste the signature into your favourite email program.</h3>
+
+<form [formGroup]="loginForm" (submit)="submit()">
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" required>
+    <mat-error *ngIf="loginForm.controls.name.touched && loginForm.controls.name.invalid">
+      <span *ngIf="loginForm.controls.name.errors.required">This field is mandatory.</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>Position</mat-label>
+    <input matInput formControlName="position" required>
+    <mat-error *ngIf="loginForm.controls.position.touched && loginForm.controls.position.invalid">
+      <span *ngIf="loginForm.controls.position.errors.required">This field is mandatory.</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>E-mail</mat-label>
+    <input matInput formControlName="email" required>
+    <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+      <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+      <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="form-field" hintLabel="(###) ###-####" appearance="outline">
+    <mat-label>Phone</mat-label>
+    <input matInput formControlName="phone" required>
+    <mat-error *ngIf="loginForm.controls.phone.touched && loginForm.controls.phone.invalid">
+      <span *ngIf="loginForm.controls.phone.errors.required">This field is mandatory.</span>
+    </mat-error>
+  </mat-form-field>
+</form>
+
+<mat-tab-group>
+  <mat-tab label="Preview">
+    <div id="htmlcode">
+      <font style="font-family: Arial, sans-serif; font-size: 10pt; color:#000; line-height:12pt;">
+        <p ng-if="name" id="name" style="font-size:120%; font-weight:700; line-height: 1.5;">{{ name }} <span style="font-size: 10pt; color:#EDB02E;">/ {{ position }}</span></p>
+        <p style="font-weight:700;">Claudio Rabaglino Architect <span style="color:#EDB02E;">Inc.</span></p>
+        <p ng-if="email" id="email">{{ email  }}<p>
+        <p ng-if="phone" id="phone">{{ phone }}</p>
+      </font>
+ <br><span style="font-size: 8pt;display: block;"><b>Confidentiality Agreement: </b> This email contains confidential and/or private information. If you received this email in error please delete and notify sender.</span></div>
+  </mat-tab>
+  <mat-tab label="Code">
+Test
+  </mat-tab>
+</mat-tab-group>
