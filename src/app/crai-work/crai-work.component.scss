@@ -7,10 +7,22 @@
 }
 
 .portfolio-image {
-  height: 300px;
+  height: calc(9*((100vw - 120px)/3)/16 );
   object-fit: cover;
 }
 
 .extra-height {
   height: 120px;
+}
+
+@media screen and (max-width: 959px) {
+  .portfolio-image {
+    height: calc(9*((100vw - 90px)/2)/16 );
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .portfolio-image {
+    height: calc(9*(100vw - 60px)/16 );
+  }
 }
