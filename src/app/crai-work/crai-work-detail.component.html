@@ -1,5 +1,5 @@
 <!-- Loading -->
-<mat-progress-bar *ngIf="!item" mode="query"></mat-progress-bar>
+<mat-progress-bar *ngIf="!item" mode="buffer"></mat-progress-bar>
 
 <ng-container *ngIf="item">
 <h1>{{item.fields.title}}</h1>
@@ -43,7 +43,7 @@
   <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'image')">
       <div fxFlex="0 1 50%" fxFlex.lt-md="100%">
         <mat-card>
-          <img mat-card-image [src]="item.fields.attachment[0].url">
+          <img mat-card-image [src]="item.fields.attachment[0].thumbnails.large.url">
           <h1>{{ item.fields.name }}</h1>
           <p>{{ item.fields.description }}</p>
         </mat-card>
@@ -53,7 +53,5 @@
     <iframe src="{{ item.fields.link | safe }}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </ng-container>
 </div>
-
-
 
 </ng-container>

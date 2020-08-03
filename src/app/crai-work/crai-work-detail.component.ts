@@ -24,7 +24,6 @@ export class CraiWorkDetailComponent implements OnInit {
       this.getDetail(this.id);
       this.getMediaForProject(this.id);
     });
-    console.log(this.item+'test');
   }
 
   getDetail(id) {
