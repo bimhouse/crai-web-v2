@@ -8,14 +8,14 @@
     <h3 class="mat-h2">Filter our portfolio by project type:</h3>
     <div class="portfolio-button-row">
       <button mat-raised-button color="primary" (click)="filterRecords('')">All</button>
-      <button mat-raised-button color="primary" *ngFor="let projectFilter of projectTypes" (click)="filterRecords(projectFilter)">{{projectFilter}}</button>
+      <button mat-raised-button color="primary" *ngFor="let projectFilter of projectTypes" (click)="filterRecords(projectFilter)">{{ projectFilter }}</button>
     </div>
   </div>
 
   <div *ngIf="!filterForProjectType" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
     <ng-container *ngFor="let item of portfolios">
       <div fxFlex="0 1 33.3%" fxFlex.lt-md="0 1 50%" fxFlex.lt-sm="100%">
-        <mat-card>
+        <mat-card [routerLink]="['/work/'+item.id]" [queryParams]="{id: item.id}">
           <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url" class="portfolio-image">
           <mat-card-header class="extra-height">
             <mat-card-title>{{ item.fields.title }}</mat-card-title>
@@ -34,7 +34,7 @@
   <div *ngIf="filterForProjectType" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
     <ng-container *ngFor="let item of (portfolios | projectTypeFilter: filterForProjectType)">
       <div fxFlex="0 1 33.3%" fxFlex.lt-md="0 1 50%" fxFlex.lt-sm="100%">
-        <mat-card>
+        <mat-card [routerLink]="['/work/'+item.id]" [queryParams]="{id: item.id}">
           <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url" class="portfolio-image">
           <mat-card-header>
             <mat-card-title>{{ item.fields.title }}</mat-card-title>

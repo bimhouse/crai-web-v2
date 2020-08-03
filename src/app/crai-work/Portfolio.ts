@@ -4,12 +4,17 @@ export interface Portfolio {
   fields: Fields
 }
 
+export interface Media {
+  id: string,
+  createdTime: string,
+  fields: mediaFields
+}
+
 export interface Fields {
   title: string,
   subtitle: string,
   location: string,
   client: string[],
-  size: string,
   project: string,
   sf: number,
   projectRole: string[],
@@ -19,6 +24,16 @@ export interface Fields {
   constructionStatus: boolean,
   clientName: string,
   thumb: Thumb
+}
+
+export interface mediaFields {
+  name: string,
+  description: string,
+  project: string[],
+  downloadable: boolean,
+  mediaType: string,
+  link: string,
+  attachement: Thumb
 }
 
 export interface Thumb {

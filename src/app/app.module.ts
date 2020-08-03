@@ -20,7 +20,9 @@ import { CraiContactComponent } from './crai-contact/crai-contact.component';
 import { CraiHomeComponent } from './crai-home/crai-home.component';
 import { CraiWorkComponent } from './crai-work/crai-work.component';
 import { CraiFooterComponent } from './crai-footer/crai-footer.component';
-import { ProjectTypeFilterPipe } from './crai-work/crai-work.pipe';
+import { ProjectTypeFilterPipe } from './crai-work/project-type.pipe';
+import { MediaTypeFilterPipe } from './crai-work/media-type.pipe';
+import { SafePipe } from './crai-work/safe.pipe';
 import { CraiWorkDetailComponent } from './crai-work/crai-work-detail.component';
 import { CraiLogoComponent } from './crai-logo/crai-logo.component';
 import { CraiEmailsigComponent } from './crai-emailsig/crai-emailsig.component';
@@ -35,6 +37,8 @@ import { CraiEmailsigComponent } from './crai-emailsig/crai-emailsig.component';
     CraiWorkComponent,
     CraiFooterComponent,
     ProjectTypeFilterPipe,
+    MediaTypeFilterPipe,
+    SafePipe,
     CraiWorkDetailComponent,
     CraiLogoComponent,
     CraiEmailsigComponent

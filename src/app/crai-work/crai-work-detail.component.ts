@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CraiWorkService } from '../services/crai-work.service';
-import { Portfolio } from './Portfolio';
+import { Portfolio, Media } from './Portfolio';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
@@ -12,19 +12,32 @@ export class CraiWorkDetailComponent implements OnInit {
 
   id: any;
   item: Portfolio;
+  media: Media[];
+  vimeos: any;
 
-  constructor(private workService: CraiWorkService,private route: ActivatedRoute) { }
+  constructor(private workService: CraiWorkService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.id = this.route.queryParams.subscribe(params => {
       this.id = params['id'];
       console.log(this.id);
-      this.workService.getDetail(this.id).subscribe(result => {
-        console.log(result);
-        this.item = result;
-      });
+      this.getDetail(this.id);
+      this.getMediaForProject(this.id);
     });
-
+    console.log(this.item+'test');
   }
 
+  getDetail(id) {
+  this.workService.getDetail(this.id).subscribe(result => {
+    console.log(result);
+    this.item = result;
+    });
+  }
+
+  getMediaForProject(id) {
+  this.workService.getMediaForProject(this.id).subscribe(result => {
+    console.log(result);
+    this.media = result;
+    });
+  }
 }

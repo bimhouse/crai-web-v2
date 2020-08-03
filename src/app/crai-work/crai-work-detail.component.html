@@ -1,12 +1,11 @@
 <!-- Loading -->
 <mat-progress-bar *ngIf="!item" mode="query"></mat-progress-bar>
 
-<h1 *ngIf="item">{{item.fields.title}}</h1>
+<ng-container *ngIf="item">
+<h1>{{item.fields.title}}</h1>
 <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
   <div fxFlex="100%">
-    <mat-card>
     <img mat-card-image [src]="item.fields.thumb[0].url">
-    </mat-card>
   </div>
 </div>
 
@@ -39,3 +38,22 @@
     <div>Downloads</div>
   </mat-tab>
 </mat-tab-group>
+
+<div *ngIf="media" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
+  <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'image')">
+      <div fxFlex="0 1 50%" fxFlex.lt-md="100%">
+        <mat-card>
+          <img mat-card-image [src]="item.fields.attachment[0].url">
+          <h1>{{ item.fields.name }}</h1>
+          <p>{{ item.fields.description }}</p>
+        </mat-card>
+      </div>
+  </ng-container>
+  <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'VimeoVideo')">
+    <iframe src="{{ item.fields.link | safe }}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </ng-container>
+</div>
+
+
+
+</ng-container>
