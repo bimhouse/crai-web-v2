@@ -11,28 +11,41 @@
 
 <mat-tab-group>
   <mat-tab label="Information">
-    <mat-list>
-      <mat-list-item>
-        <mat-icon mat-list-icon>person</mat-icon>
-        <div mat-line>{{item.fields.clientName}}</div>
-        <div mat-line>Client</div>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon>place</mat-icon>
-        <div mat-line>{{item.fields.location}}</div>
-        <div mat-line>Location</div>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon>crop_square</mat-icon>
-        <div mat-line>{{item.fields.sf}}</div>
-        <div mat-line>Size [sf]</div>
-      </mat-list-item>
-      <mat-list-item>Project {{item.fields.project}}</mat-list-item>
-      <mat-list-item>Role {{item.fields.projectRole}}</mat-list-item>
-    </mat-list>
-  </mat-tab>
-  <mat-tab label="Story">
-    <div>{{item.fields.writeUp}}</div>
+    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0px grid" fxLayoutAlign="start">
+      <div fxFlex="0 1 33.3%" fxFlex.lt-md="100%">
+        <mat-list>
+          <mat-list-item>
+            <mat-icon mat-list-icon>person</mat-icon>
+            <div mat-line>{{item.fields.clientName}}</div>
+            <div mat-line>Client</div>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon mat-list-icon>location_city</mat-icon>
+            <div mat-line>{{item.fields.project}}</div>
+            <div mat-line>Project</div>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon mat-list-icon>place</mat-icon>
+            <div mat-line>{{item.fields.location}}</div>
+            <div mat-line>Location</div>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon mat-list-icon>crop_square</mat-icon>
+            <div mat-line>{{item.fields.sf}} sf</div>
+            <div mat-line>Size</div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div fxFlex="0 1 66.6%" fxFlex.lt-md="100%">
+        <h3>Role</h3>
+        <ng-container *ngFor="let item of projectRole">
+        <mat-chip-list aria-label="Project Role">
+          <mat-chip color="accent">{{item.getProjectRole}}</mat-chip>
+        </mat-chip-list>
+        </ng-container>
+        <p>{{item.fields.writeUp}}</p>
+      </div>
+    </div>
   </mat-tab>
   <mat-tab label="Downloads">
     <div>Downloads</div>

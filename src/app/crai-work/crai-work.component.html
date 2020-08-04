@@ -1,12 +1,32 @@
 <!-- Loading -->
 <mat-progress-bar *ngIf="!portfolios" mode="query"></mat-progress-bar>
-
 <section>
-
-  <div>
-    <h1 class="mat-h1">Design application, execution and collaboration have helped bring these visions to life.</h1>
-    <h3 class="mat-h2">Filter our portfolio by project type:</h3>
-    <div class="portfolio-button-row">
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
+    <div fxFlex="0 1 100%">
+      <h1 class="mat-h1">Design application, execution and collaboration have helped bring these visions to life.</h1>
+      <mat-divider></mat-divider>
+      <h1 class="mat-h1">How We Work</h1>
+      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
+        <div fxFlex="0 1 33.3%">
+          <h1 style="font-size:150px; color: #bbbbbb;">1</h1>
+          <h2>Insight</h2>
+          <p>We combine observation, analysis and practice to uncover hidden potential.</p>
+        </div>
+        <div fxFlex="0 1 33.3%">
+          <h1 style="font-size:150px; color: #bbbbbb;">2</h1>
+          <h2>Idea</h2>
+          <p>We turn insight into action, taking many vantage points along the way.</p>
+        </div>
+        <div fxFlex="0 1 33.3%">
+          <h1 style="font-size:150px; color: #bbbbbb;">3</h1>
+          <h2>Impact</h2>
+          <p>We transform ideas into real solutions, considering scale & measurability.</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="projectTypes" class="portfolio-button-row" fxFlex="0 1 100%" >
+      <mat-divider></mat-divider>
+      <h3 class="mat-h2">Filter our portfolio by project type:</h3>
       <button mat-raised-button color="primary" (click)="filterRecords('')">All</button>
       <button mat-raised-button color="primary" *ngFor="let projectFilter of projectTypes" (click)="filterRecords(projectFilter)">{{ projectFilter }}</button>
     </div>
