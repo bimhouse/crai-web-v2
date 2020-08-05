@@ -1,12 +1,10 @@
 <!-- Loading -->
-<mat-progress-bar *ngIf="!item" mode="buffer"></mat-progress-bar>
+<mat-progress-bar *ngIf="!portfolio" mode="buffer"></mat-progress-bar>
 
-<ng-container *ngIf="item">
-<h1>{{item.fields.title}}</h1>
-<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
-  <div fxFlex="100%">
-    <img mat-card-image [src]="item.fields.thumb[0].url">
-  </div>
+<ng-container *ngIf="portfolio">
+<div class="cover">
+  <h1 class="cover-title">{{portfolio.fields.title}}</h1>
+  <img class="cover-image" [src]="portfolio.fields.thumb[0].url">
 </div>
 
 <mat-tab-group>
@@ -16,34 +14,34 @@
         <mat-list>
           <mat-list-item>
             <mat-icon mat-list-icon>person</mat-icon>
-            <div mat-line>{{item.fields.clientName}}</div>
+            <div mat-line>{{portfolio.fields.clientName}}</div>
             <div mat-line>Client</div>
           </mat-list-item>
           <mat-list-item>
             <mat-icon mat-list-icon>location_city</mat-icon>
-            <div mat-line>{{item.fields.project}}</div>
+            <div mat-line>{{portfolio.fields.project}}</div>
             <div mat-line>Project</div>
           </mat-list-item>
           <mat-list-item>
             <mat-icon mat-list-icon>place</mat-icon>
-            <div mat-line>{{item.fields.location}}</div>
+            <div mat-line>{{portfolio.fields.location}}</div>
             <div mat-line>Location</div>
           </mat-list-item>
           <mat-list-item>
             <mat-icon mat-list-icon>crop_square</mat-icon>
-            <div mat-line>{{item.fields.sf}} sf</div>
+            <div mat-line>{{portfolio.fields.sf}} sf</div>
             <div mat-line>Size</div>
           </mat-list-item>
         </mat-list>
       </div>
       <div fxFlex="0 1 66.6%" fxFlex.lt-md="100%">
         <h3>Role</h3>
-        <ng-container *ngFor="let item of projectRole">
         <mat-chip-list aria-label="Project Role">
-          <mat-chip color="accent">{{item.getProjectRole}}</mat-chip>
+          <ng-container *ngFor="let item of portfolio.fields.projectRole, let i = index">
+            <mat-chip color="accent">{{ portfolio.fields.projectRole[i] }}</mat-chip>
+          </ng-container>
         </mat-chip-list>
-        </ng-container>
-        <p>{{item.fields.writeUp}}</p>
+        <p>{{portfolio.fields.writeUp}}</p>
       </div>
     </div>
   </mat-tab>

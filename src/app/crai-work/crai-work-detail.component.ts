@@ -12,10 +12,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class CraiWorkDetailComponent implements OnInit {
 
   id: any;
-  item: Portfolio;
+  portfolio: Portfolio;
   media: Media[];
-  vimeos: any;
-  projectRole: any;
+  videos: any;
 
   constructor(
     private workService: CraiWorkService,
@@ -34,7 +33,7 @@ export class CraiWorkDetailComponent implements OnInit {
   getDetail(id) {
   this.workService.getDetail(this.id).subscribe(result => {
     console.log(result);
-    this.item = result;
+    this.portfolio = result;
     });
   }
 
@@ -43,10 +42,5 @@ export class CraiWorkDetailComponent implements OnInit {
     console.log(result);
     this.media = result;
     });
-  }
-
-  getProjectRole() {
-    return this.id.fields.projectRole;
-    console.log('test');
   }
 }

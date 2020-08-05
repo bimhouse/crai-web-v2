@@ -39,7 +39,7 @@
           <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url" class="portfolio-image">
           <mat-card-header class="extra-height">
             <mat-card-title>{{ item.fields.title }}</mat-card-title>
-            <mat-card-subtitle>/ {{ item.fields.subtitle }}</mat-card-subtitle>
+            <mat-card-subtitle>{{ item.fields.subtitle }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions>
             <button mat-fab color="accent" matTooltip="Launch Project" [matTooltipPosition]="'after'" [routerLink]="['/work/'+item.id]" [queryParams]="{id: item.id}" aria-label="Open Project">
