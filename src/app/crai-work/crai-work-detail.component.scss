@@ -1,21 +1,28 @@
-.cover {
-  width: 100%;
-}
+// Styling for work detail
+@import '~@angular/material/theming';
 
-.cover-title {
-  font-size: 90px;
-  line-height: 90px;
-  margin-bottom: 30px;
-}
+@mixin crai-work-detail-theme($theme) {
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  $breakpoint: map-get($theme, $mat-small);
 
-.cover-image {
-  width: 100%;
-  border-radius: 4px;
-}
+  .crai-cover {
+    width: 100%;
 
-@media screen and (max-width: 959px) {
-  .cover-title {
-    font-size: 60px;
-    line-height: 60px;
+    .crai-cover-title {
+      color: mat-color($accent);
+      font-size: 45px;
+      line-height: 45px;
+      margin-bottom: 30px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .crai-cover-image {
+      width: 100%;
+      border-radius: 4px;
+    }
+
   }
+
 }

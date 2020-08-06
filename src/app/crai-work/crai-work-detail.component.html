@@ -2,14 +2,14 @@
 <mat-progress-bar *ngIf="!portfolio" mode="buffer"></mat-progress-bar>
 
 <ng-container *ngIf="portfolio">
-<div class="cover">
-  <h1 class="cover-title">{{portfolio.fields.title}}</h1>
-  <img class="cover-image" [src]="portfolio.fields.thumb[0].url">
+<div class="crai-cover">
+  <h1 class="crai-cover-title">{{portfolio.fields.title}}</h1>
+  <img class="crai-cover-image" [src]="portfolio.fields.thumb[0].url">
 </div>
 
 <mat-tab-group>
   <mat-tab label="Information">
-    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0px grid" fxLayoutAlign="start">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
       <div fxFlex="0 1 33.3%" fxFlex.lt-md="100%">
         <mat-list>
           <mat-list-item>
@@ -60,8 +60,9 @@
         </mat-card>
       </div>
   </ng-container>
-  <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'VimeoVideo')">
-    <iframe src="{{ item.fields.link | safe }}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'VimeoVideo'), let i = index">
+    <p>https://player.vimeo.com/video/{{ item.fields.link[i] }}</p>
+    <iframe src="https://player.vimeo.com/video/{{ item.fields.link[i] }}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </ng-container>
 </div>
 

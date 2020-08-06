@@ -14,7 +14,7 @@ export class CraiWorkDetailComponent implements OnInit {
   id: any;
   portfolio: Portfolio;
   media: Media[];
-  videos: any;
+  videos: string[];
 
   constructor(
     private workService: CraiWorkService,
@@ -41,6 +41,13 @@ export class CraiWorkDetailComponent implements OnInit {
   this.workService.getMediaForProject(this.id).subscribe(result => {
     console.log(result);
     this.media = result;
-    });
+
+    if (!this.videos) {
+      let _videos = this.media.map(item => item.fields.link);
+      console.log(_videos);
+      this.videos = _videos;
+    };
+  });
+
   }
 }
