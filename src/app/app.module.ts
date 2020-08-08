@@ -26,6 +26,7 @@ import { SafePipe } from './crai-work/safe.pipe';
 import { CraiWorkDetailComponent } from './crai-work/crai-work-detail.component';
 import { CraiLogoComponent } from './crai-logo/crai-logo.component';
 import { CraiEmailsigComponent } from './crai-emailsig/crai-emailsig.component';
+import { EmbedVideo } from 'ngx-embed-video';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CraiEmailsigComponent } from './crai-emailsig/crai-emailsig.component';
     AngularMaterialModule,
     FlexLayoutModule,
     CoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EmbedVideo.forRoot()
   ],
   providers: [CraiWorkService],
   bootstrap: [AppComponent]

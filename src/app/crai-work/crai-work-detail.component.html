@@ -3,13 +3,13 @@
 
 <ng-container *ngIf="portfolio">
 <div class="crai-cover">
-  <h1 class="crai-cover-title">{{portfolio.fields.title}}</h1>
+  <h1 class="mat-display-4">{{portfolio.fields.title}}</h1>
   <img class="crai-cover-image" [src]="portfolio.fields.thumb[0].url">
 </div>
 
 <mat-tab-group>
   <mat-tab label="Information">
-    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="0px grid" fxLayoutAlign="start">
       <div fxFlex="0 1 33.3%" fxFlex.lt-md="100%">
         <mat-list>
           <mat-list-item>
@@ -50,6 +50,16 @@
   </mat-tab>
 </mat-tab-group>
 
+<div *ngIf="videos" fxLayout="column" class="videos-section">
+  <h1 class="mat-display-3">Videos</h1>
+  <h1>Our team builds media, check out these videos.</h1>
+  <ng-container *ngFor="let item of videos, let i = index">
+    <div fxFlex="100%" class="vimeo-container">
+      <div class="embed-container" [innerHtml]="videos[i]"></div>
+    </div>
+  </ng-container>
+</div>
+
 <div *ngIf="media" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
   <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'image')">
       <div fxFlex="0 1 50%" fxFlex.lt-md="100%">
@@ -59,10 +69,6 @@
           <p>{{ item.fields.description }}</p>
         </mat-card>
       </div>
-  </ng-container>
-  <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'VimeoVideo'), let i = index">
-    <p>https://player.vimeo.com/video/{{ item.fields.link[i] }}</p>
-    <iframe src="https://player.vimeo.com/video/{{ item.fields.link[i] }}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </ng-container>
 </div>
 

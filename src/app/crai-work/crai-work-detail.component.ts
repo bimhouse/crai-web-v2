@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CraiWorkService } from '../services/crai-work.service';
 import { Portfolio, Media } from './Portfolio';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { EmbedVideoService } from 'ngx-embed-video';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-crai-work-detail',
@@ -15,11 +16,14 @@ export class CraiWorkDetailComponent implements OnInit {
   portfolio: Portfolio;
   media: Media[];
   videos: string[];
+  trustedDashboardUrl : SafeUrl;
+  iframe_html: any;
 
   constructor(
     private workService: CraiWorkService,
     private route: ActivatedRoute,
-    private _sanitizer: DomSanitizer) { }
+    private embedService: EmbedVideoService,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.id = this.route.queryParams.subscribe(params => {
@@ -43,9 +47,9 @@ export class CraiWorkDetailComponent implements OnInit {
     this.media = result;
 
     if (!this.videos) {
-      let _videos = this.media.map(item => item.fields.link);
-      console.log(_videos);
+      let _videos = this.media.map(item => this.embedService.embed(item.fields.link));
       this.videos = _videos;
+      console.log(this.videos);
     };
   });
 
