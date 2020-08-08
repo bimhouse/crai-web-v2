@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreModule } from './core/core.module';
 import { CraiWorkService } from './services/crai-work.service';
+import { CustomIconService } from './services/custom-icon.service';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -55,7 +56,10 @@ import { EmbedVideo } from 'ngx-embed-video';
     ReactiveFormsModule,
     EmbedVideo.forRoot()
   ],
-  providers: [CraiWorkService],
+  providers: [
+    CraiWorkService,
+    CustomIconService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

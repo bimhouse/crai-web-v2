@@ -16,14 +16,13 @@ export class CraiWorkDetailComponent implements OnInit {
   portfolio: Portfolio;
   media: Media[];
   videos: string[];
-  trustedDashboardUrl : SafeUrl;
   iframe_html: any;
 
   constructor(
     private workService: CraiWorkService,
     private route: ActivatedRoute,
     private embedService: EmbedVideoService,
-    private sanitizer: DomSanitizer) { }
+    private sanitizer: DomSanitizer ) { }
 
   ngOnInit() {
     this.id = this.route.queryParams.subscribe(params => {

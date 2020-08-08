@@ -1,5 +1,4 @@
 <!-- Loading -->
-<mat-progress-bar *ngIf="!portfolios" mode="query"></mat-progress-bar>
 <section>
   <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
     <div fxFlex="0 1 100%">
@@ -24,6 +23,7 @@
         </div>
       </div>
     </div>
+    <mat-progress-bar *ngIf="!portfolios" mode="query"></mat-progress-bar>
     <div *ngIf="projectTypes" class="portfolio-button-row" fxFlex="0 1 100%" >
       <mat-divider></mat-divider>
       <h3 class="mat-h2">Filter our portfolio by project type:</h3>
