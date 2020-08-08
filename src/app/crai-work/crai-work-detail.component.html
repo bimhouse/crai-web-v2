@@ -2,7 +2,8 @@
 <mat-progress-bar *ngIf="!portfolio" mode="buffer"></mat-progress-bar>
 <ng-container *ngIf="portfolio">
 <div class="crai-cover">
-  <h1 class="mat-display-4">{{portfolio.fields.title}}</h1>
+  <h1 fxHide fxShow.gt-sm class="mat-display-4">{{portfolio.fields.title}}</h1>
+  <h1 fxHide.gt-sm class="mat-display-2">{{portfolio.fields.title}}</h1>
   <img class="crai-cover-image" [src]="portfolio.fields.thumb[0].url">
 </div>
 
@@ -59,7 +60,8 @@
   </ng-container>
 </div>
 
-<div *ngIf="media" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
+<mat-progress-bar *ngIf="!media" mode="buffer"></mat-progress-bar>
+<div *ngIf="media" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid">
   <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'image')">
       <div fxFlex="0 1 50%" fxFlex.lt-md="100%">
         <mat-card>

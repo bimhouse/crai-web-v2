@@ -42,14 +42,19 @@ export class CraiWorkDetailComponent implements OnInit {
 
   getMediaForProject(id) {
   this.workService.getMediaForProject(this.id).subscribe(result => {
-    console.log(result);
-    this.media = result;
+    if(result != null){
+      this.media = result;
+    } else {
+      this.media = null;
+    }
 
-    if (!this.videos) {
-      let _videos = this.media.map(item => this.embedService.embed(item.fields.link));
-      this.videos = _videos;
-      console.log(this.videos);
-    };
+    if(this.media != null) {
+      if (!this.videos) {
+        let _videos = this.media.map(item => this.embedService.embed(item.fields.link));
+        this.videos = _videos;
+        console.log(this.videos);
+      };
+    }
   });
 
   }

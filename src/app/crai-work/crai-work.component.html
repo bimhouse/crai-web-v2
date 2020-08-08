@@ -2,22 +2,20 @@
 <section>
   <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
     <div fxFlex="0 1 100%">
-      <h1 class="mat-h1">Design application, execution and collaboration have helped bring these visions to life.</h1>
-      <mat-divider></mat-divider>
-      <h1 class="mat-h1">How We Work</h1>
+      <h1 class="mat-display-2">How We Work</h1>
       <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
         <div fxFlex="0 1 33.3%">
-          <h1 style="font-size:150px; color: #bbbbbb;">1</h1>
+          <h1 class="iii-bg-number">1</h1>
           <h2>Insight</h2>
           <p>We combine observation, analysis and practice to uncover hidden potential.</p>
         </div>
         <div fxFlex="0 1 33.3%">
-          <h1 style="font-size:150px; color: #bbbbbb;">2</h1>
+          <h1 class="iii-bg-number">2</h1>
           <h2>Idea</h2>
           <p>We turn insight into action, taking many vantage points along the way.</p>
         </div>
         <div fxFlex="0 1 33.3%">
-          <h1 style="font-size:150px; color: #bbbbbb;">3</h1>
+          <h1 class="iii-bg-number">3</h1>
           <h2>Impact</h2>
           <p>We transform ideas into real solutions, considering scale & measurability.</p>
         </div>
@@ -25,8 +23,9 @@
     </div>
     <mat-progress-bar *ngIf="!portfolios" mode="query"></mat-progress-bar>
     <div *ngIf="projectTypes" class="portfolio-button-row" fxFlex="0 1 100%" >
-      <mat-divider></mat-divider>
-      <h3 class="mat-h2">Filter our portfolio by project type:</h3>
+      <h1 fxHide fxShow.gt-sm class="mat-display-3">Design application, execution and collaboration have helped bring these visions to life.</h1>
+      <h1 fxHide.gt-sm class="mat-display-2">Design application, execution and collaboration have helped bring these visions to life.</h1>
+      <h3>Filter our portfolio by project type:</h3>
       <button mat-raised-button color="primary" (click)="filterRecords('')">All</button>
       <button mat-raised-button color="primary" *ngFor="let projectFilter of projectTypes" (click)="filterRecords(projectFilter)">{{ projectFilter }}</button>
     </div>
@@ -37,12 +36,12 @@
       <div fxFlex="0 1 33.3%" fxFlex.lt-md="0 1 50%" fxFlex.lt-sm="100%">
         <mat-card [routerLink]="['/work/'+item.id]" [queryParams]="{id: item.id}">
           <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url" class="portfolio-image">
-          <mat-card-header class="extra-height">
+          <mat-card-header>
             <mat-card-title>{{ item.fields.title }}</mat-card-title>
             <mat-card-subtitle>{{ item.fields.subtitle }}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions>
-            <button mat-fab color="accent" matTooltip="Launch Project" [matTooltipPosition]="'after'" [routerLink]="['/work/'+item.id]" [queryParams]="{id: item.id}" aria-label="Open Project">
+            <button mat-fab color="accent" matTooltip="Launch [{{item.fields.title}}]" [matTooltipPosition]="'after'" [routerLink]="['/work/'+item.id]" [queryParams]="{id: item.id}" aria-label="Open Project">
               <mat-icon>touch_app</mat-icon>
             </button>
           </mat-card-actions>
