@@ -15,6 +15,7 @@ export class CraiWorkDetailComponent implements OnInit {
   id: any;
   portfolio: Portfolio;
   media: Media[];
+  videoMedia: Media[];
   videos: string[];
   iframe_html: any;
 
@@ -42,20 +43,18 @@ export class CraiWorkDetailComponent implements OnInit {
 
   getMediaForProject(id) {
   this.workService.getMediaForProject(this.id).subscribe(result => {
-    if(result != null){
+    if(result != null && result.length > 0){
+      console.log(result);
       this.media = result;
-    } else {
-      this.media = null;
-    }
+      this.videoMedia = result.filter(x => x.fields.mediaType == "VimeoVideo");
+      console.log(this.videoMedia);
 
-    if(this.media != null) {
-      if (!this.videos) {
-        let _videos = this.media.map(item => this.embedService.embed(item.fields.link));
+      if (this.videoMedia.length > 0) {
+        let _videos = this.videoMedia.map(item => this.embedService.embed(item.fields.link));
+        console.log(_videos);
         this.videos = _videos;
-        console.log(this.videos);
-      };
-    }
+      } else { console.log("CONDITION NO VIDEOS");}
+    } else { console.log("CONDITION NO MEDIA");};
   });
-
   }
 }

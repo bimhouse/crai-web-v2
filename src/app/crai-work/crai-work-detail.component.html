@@ -52,7 +52,7 @@
 
 <div *ngIf="videos" fxLayout="column" class="videos-section">
   <h1 class="mat-display-3">Videos</h1>
-  <h1>Our team builds media, check out these videos.</h1>
+  <h1>Our team also builds media, check out these videos.</h1>
   <ng-container *ngFor="let item of videos, let i = index">
     <div fxFlex="100%" class="vimeo-container">
       <div class="embed-container" [innerHtml]="videos[i]"></div>
