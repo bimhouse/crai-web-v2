@@ -2,7 +2,7 @@
 <mat-progress-bar *ngIf="!portfolio" mode="buffer"></mat-progress-bar>
 <ng-container *ngIf="portfolio">
 <div class="crai-cover">
-  <h1 fxHide fxShow.gt-sm class="mat-display-4">{{portfolio.fields.title}}</h1>
+  <h1 fxHide fxShow.gt-sm class="mat-display-3">{{portfolio.fields.title}}</h1>
   <h1 fxHide.gt-sm class="mat-display-2">{{portfolio.fields.title}}</h1>
   <img class="crai-cover-image" [src]="portfolio.fields.thumb[0].url">
 </div>
@@ -35,17 +35,18 @@
         </mat-list>
       </div>
       <div fxFlex="0 1 66.6%" fxFlex.lt-md="100%">
-        <h3>Role</h3>
+        <br><h3>Work Completed</h3>
         <mat-chip-list aria-label="Project Role">
           <ng-container *ngFor="let item of portfolio.fields.projectRole, let i = index">
             <mat-chip color="accent">{{ portfolio.fields.projectRole[i] }}</mat-chip>
           </ng-container>
         </mat-chip-list>
+        <br><h3>Story</h3>
         <p>{{portfolio.fields.writeUp}}</p>
       </div>
     </div>
   </mat-tab>
-  <mat-tab label="Downloads">
+  <mat-tab disabled label="Downloads">
     <div>Downloads</div>
   </mat-tab>
 </mat-tab-group>
@@ -60,8 +61,8 @@
   </ng-container>
 </div>
 
-<mat-progress-bar *ngIf="!media" mode="buffer"></mat-progress-bar>
-<div *ngIf="media" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid">
+<div *ngIf="media">
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid">
   <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'image')">
       <div fxFlex="0 1 50%" fxFlex.lt-md="100%">
         <mat-card>
@@ -71,6 +72,7 @@
         </mat-card>
       </div>
   </ng-container>
+  </div>
 </div>
 
 </ng-container>
