@@ -2,7 +2,7 @@
 <mat-progress-bar *ngIf="!portfolio" mode="buffer"></mat-progress-bar>
 <ng-container *ngIf="portfolio">
 <div class="crai-cover">
-  <h1 fxHide fxShow.gt-sm class="mat-display-3">{{portfolio.fields.title}}</h1>
+  <h1 fxHide fxShow.gt-sm class="mat-display-4">{{portfolio.fields.title}}</h1>
   <h1 fxHide.gt-sm class="mat-display-2">{{portfolio.fields.title}}</h1>
   <img class="crai-cover-image" [src]="portfolio.fields.thumb[0].url">
 </div>
@@ -29,7 +29,7 @@
           </mat-list-item>
           <mat-list-item>
             <mat-icon mat-list-icon>crop_square</mat-icon>
-            <div mat-line>{{portfolio.fields.sf}} sf</div>
+            <div mat-line>{{ portfolio.fields.sf | number}} sf</div>
             <div mat-line>Size</div>
           </mat-list-item>
         </mat-list>
