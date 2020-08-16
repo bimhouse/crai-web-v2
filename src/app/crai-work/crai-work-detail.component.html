@@ -7,27 +7,28 @@
   <img class="crai-cover-image" [src]="portfolio.fields.thumb[0].url">
 </div>
 
+<div style="padding-right: 30px;">
 <mat-tab-group>
   <mat-tab label="Information">
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="0px grid" fxLayoutAlign="start">
       <div fxFlex="0 1 33.3%" fxFlex.lt-md="100%">
         <mat-list>
-          <mat-list-item>
+          <mat-list-item *ngIf="portfolio.fields.clientName">
             <mat-icon mat-list-icon>person</mat-icon>
             <div mat-line>{{portfolio.fields.clientName}}</div>
             <div mat-line>Client</div>
           </mat-list-item>
-          <mat-list-item>
+          <mat-list-item *ngIf="portfolio.fields.project">
             <mat-icon mat-list-icon>location_city</mat-icon>
             <div mat-line>{{portfolio.fields.project}}</div>
             <div mat-line>Project</div>
           </mat-list-item>
-          <mat-list-item>
+          <mat-list-item *ngIf="portfolio.fields.location">
             <mat-icon mat-list-icon>place</mat-icon>
             <div mat-line>{{portfolio.fields.location}}</div>
             <div mat-line>Location</div>
           </mat-list-item>
-          <mat-list-item>
+          <mat-list-item *ngIf="portfolio.fields.sf">
             <mat-icon mat-list-icon>crop_square</mat-icon>
             <div mat-line>{{ portfolio.fields.sf | number}} sf</div>
             <div mat-line>Size</div>
@@ -50,6 +51,7 @@
     <div>Downloads</div>
   </mat-tab>
 </mat-tab-group>
+</div>
 
 <div *ngIf="videos" fxLayout="column" class="videos-section">
   <h1 class="mat-display-3">Videos</h1>
@@ -61,18 +63,16 @@
   </ng-container>
 </div>
 
-<div *ngIf="media">
-  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid">
-  <ng-container *ngFor="let item of ( media | mediaTypeFilter: 'image')">
-      <div fxFlex="0 1 50%" fxFlex.lt-md="100%">
-        <mat-card>
-          <img mat-card-image [src]="item.fields.attachment[0].thumbnails.large.url">
-          <h1>{{ item.fields.name }}</h1>
-          <p>{{ item.fields.description }}</p>
-        </mat-card>
-      </div>
-  </ng-container>
-  </div>
+<div *ngIf="media" style="padding-right: 30px;">
+  <ngx-masonry [options]="{ gutter: 30, itemSelector: '.masonry-item', columnWidth: '.masonry-item', horizontalOrder: true }">
+    <div ngxMasonryItem class="masonry-item" *ngFor="let item of ( media | mediaTypeFilter: 'image')">
+      <mat-card>
+        <img mat-card-image [src]="item.fields.attachment[0].thumbnails.large.url">
+        <h1 *ngIf="item.fields.name">{{ item.fields.name }}</h1>
+        <p *ngIf="item.fields.description">{{ item.fields.description }}</p>
+      </mat-card>
+    </div>
+  </ngx-masonry>
 </div>
 
 </ng-container>

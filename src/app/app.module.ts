@@ -28,6 +28,7 @@ import { CraiWorkDetailComponent } from './crai-work/crai-work-detail.component'
 import { CraiLogoComponent } from './crai-logo/crai-logo.component';
 import { CraiEmailsigComponent } from './crai-emailsig/crai-emailsig.component';
 import { EmbedVideo } from 'ngx-embed-video';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { EmbedVideo } from 'ngx-embed-video';
     FlexLayoutModule,
     CoreModule,
     ReactiveFormsModule,
-    EmbedVideo.forRoot()
+    EmbedVideo.forRoot(),
+    NgxMasonryModule
   ],
   providers: [
     CraiWorkService,
