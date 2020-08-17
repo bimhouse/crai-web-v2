@@ -2,8 +2,10 @@
 <mat-progress-bar *ngIf="!employees" mode="query"></mat-progress-bar>
 
 <div style="padding-right: 30px;">
-  <h1 class="mat-display-2">These are the voices of our architects, design thinkers and collaborators.</h1>
-  <h3 class="mat-display-1">Explore their methods and thoughts here.</h3>
+  <div fxLayout="column">
+  <h1 fxFlex="75%" fxFlex.lt-sm="100%" class="mat-display-2">These are the voices of our architects, design thinkers and collaborators.</h1>
+  <h3 fxFlex="75%" fxFlex.lt-sm="100%" class="mat-display-1">Explore their methods and thoughts here.</h3>
+  </div>
 <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="30px grid" fxLayoutAlign="start">
   <ng-container *ngFor="let employee of employees" {{ employee.EmployeeName }}>
     <div fxFlex="0 1 33.3%" fxFlex.lt-md="0 1 50%" fxFlex.lt-sm="100%">
