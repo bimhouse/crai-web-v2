@@ -1,9 +1,11 @@
 @import '../app/crai-logo/crai-logo.component';
 @import '../app/crai-work/crai-work-detail.component';
 @import '../app/crai-work/crai-work.component';
+@import '../app/crai-people/crai-people.component';
 
 @mixin component-themes($theme) {
   @include crai-logo-theme($theme);
   @include crai-work-detail-theme($theme);
   @include crai-work-theme($theme);
+  @include crai-people-theme($theme);
 }

@@ -1,1 +1,35 @@
+// Styling for work detail
+@import '~@angular/material/theming';
 
+@mixin crai-people-theme($theme) {
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  $break-small: 599px;
+  $break-tablet: 959px;
+
+  .employee-card-image {
+    height: calc(33.3vw - 1.33 * 30px);
+    object-fit: cover;
+    object-position: 0 0;
+  }
+
+  .employee-button-row {
+    display: table-cell;
+  }
+
+  .employee-button-row .mat-button-base {
+    margin: 0 30px 15px 0;
+  }
+
+  @media screen and (max-width: $break-tablet) {
+    .employee-card-image {
+      height: calc(50vw - 1.5 * 30px);
+    }
+  }
+
+  @media screen and (max-width: $break-small) {
+    .employee-card-image {
+      height: calc(100vw - 60px);
+    }
+  }
+}
