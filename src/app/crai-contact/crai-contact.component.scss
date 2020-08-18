@@ -1,23 +1,38 @@
-.location-row {
-    margin: 60px 0;
-}
+// Styling for work detail
+@import '~@angular/material/theming';
 
-.location-row:first-child {
-   margin: 0 0 60px 0;
-}
+@mixin crai-contact-theme($theme) {
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  $break-small: 599px;
+  $break-tablet: 959px;
 
-.location-row:last-child {
-   margin: 60px 0 0 0;
-}
+  .location-row {
+      margin: 60px 0;
+  }
 
-.location-button-row {
-  display: table-cell;
-}
+  .location-row:first-child {
+     margin: 0 0 60px 0;
+  }
 
-.location-button-row .mat-button-base {
-  margin: 15px 30px 15px 0;
-}
+  .location-row:last-child {
+     margin: 60px 0 0 0;
+  }
 
-.page-header {
-  padding-right: 30px;
+  .location-button-row {
+    display: table-cell;
+  }
+
+  .location-button-row .mat-button-base {
+    margin: 15px 30px 15px 0;
+  }
+
+  .page-header {
+    padding-right: 30px;
+  }
+
+  .contact-image {
+    height: 400px;
+    border-radius: 4px;
+  }
 }
