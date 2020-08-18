@@ -35,7 +35,7 @@
       <mat-divider></mat-divider>
       <button mat-button class="sidenav-jumbo-button" routerLink="/contact" (click)="drawer.toggle()">Contact</button>
       <mat-divider></mat-divider>
-      <button mat-button class="sidenav-jumbo-button" routerLink="/contact" (click)="drawer.toggle()">Social</button>
+      <button mat-button class="sidenav-jumbo-button" routerLink="/contact" [fragment]='"social"' (click)="drawer.toggle()">Social</button>
       <mat-divider></mat-divider>
       <button (click)="drawer.toggle()" mat-button>
         <mat-icon>close</mat-icon><span>Close</span>
