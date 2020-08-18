@@ -7,28 +7,31 @@
         <div fxFlex="0 1 33.3%">
             <p class="iii-bg-number">1</p>
             <h1 class="mat-display-1">Insight</h1>
-            <p>We combine observation, analysis and practice to uncover hidden potential.</p>
+            <h2>We combine observation, analysis and practice to uncover hidden potential.</h2>
         </div>
         <div fxFlex="0 1 33.3%">
             <p class="iii-bg-number">2</p>
             <h1 class="mat-display-1">Idea</h1>
-            <p class="mat-subtitle">We turn insight into action, taking many vantage points along the way.</p>
+            <h2>We turn insight into action, taking many vantage points along the way.</h2>
         </div>
         <div fxFlex="0 1 33.3%">
             <p class="iii-bg-number">3</p>
             <h1 class="mat-display-1">Impact</h1>
-            <p>We transform ideas into real solutions, considering scale & measurability.</p>
+            <h2>We transform ideas into real solutions, considering scale & measurability.</h2>
         </div>
       </div>
     </div>
     <mat-progress-bar *ngIf="!portfolios" mode="query"></mat-progress-bar>
     <div *ngIf="projectTypes" class="portfolio-button-row" fxFlex="0 1 100%" >
       <mat-divider></mat-divider>
-      <h1 fxHide fxShow.gt-sm class="mat-display-3 work-title">Design application, execution and collaboration have helped bring these visions to life.</h1>
-      <h1 fxHide.gt-sm class="mat-display-2 work-title">Design application, execution and collaboration have helped bring these visions to life.</h1>
-      <h3>Filter our portfolio by project type:</h3>
-      <button mat-raised-button color="primary" (click)="filterRecords('')">All</button>
-      <button mat-raised-button color="primary" *ngFor="let projectFilter of projectTypes" (click)="filterRecords(projectFilter)">{{ projectFilter }}</button>
+      <div fxLayout="row wrap">
+        <h1 fxFlex="100%" class="mat-display-2 work-title">Design application, execution and collaboration have helped bring these visions to life.</h1>
+        <div fxFlex="100%">
+          <h2>Filter our portfolio by project type:</h2>
+          <button mat-raised-button color="primary" (click)="filterRecords('')">All</button>
+          <button mat-raised-button color="primary" *ngFor="let projectFilter of projectTypes" (click)="filterRecords(projectFilter)">{{ projectFilter }}</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -37,7 +40,7 @@
       <div fxFlex="0 1 33.3%" fxFlex.lt-md="0 1 50%" fxFlex.lt-sm="100%">
         <mat-card [routerLink]="['/work/'+item.id]" [queryParams]="{id: item.id}">
           <img mat-card-image [src]="item.fields.thumb[0].thumbnails.large.url" class="portfolio-image">
-          <mat-card-header>
+          <mat-card-header style="height: 110px;">
             <mat-card-title>{{ item.fields.title }}</mat-card-title>
             <mat-card-subtitle>{{ item.fields.subtitle }}</mat-card-subtitle>
           </mat-card-header>
