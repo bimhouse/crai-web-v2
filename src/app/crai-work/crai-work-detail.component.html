@@ -63,7 +63,7 @@
   </ng-container>
 </div>
 
-<div *ngIf="media" style="padding-right: 30px;">
+<div *ngIf="media" style="padding-right: 30px; padding-top: 60px;">
   <ngx-masonry [options]="{ gutter: 30, itemSelector: '.masonry-item', columnWidth: '.masonry-item', horizontalOrder: true }">
     <div ngxMasonryItem class="masonry-item" *ngFor="let item of ( media | mediaTypeFilter: 'image')">
       <mat-card>
